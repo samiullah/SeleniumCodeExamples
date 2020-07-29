@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +17,9 @@ public class greenkart {
 		System.setProperty("webdriver.chrome.driver", "chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		long startTime = System.nanoTime();
+		
+		
 
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 
@@ -26,19 +30,21 @@ public class greenkart {
 		checkOut(driver);
 
 		driver.quit();
+		long stopTime = System.nanoTime();
+		System.out.println(stopTime - startTime);
 
 	}
 
 	public static  void addProducts(WebDriver driver, String[] prod) throws InterruptedException {
 		List<WebElement> products = driver.findElements(By.className("product-name"));
 		List l = Arrays.asList(prod);
-		System.out.println(l);
+//		System.out.println(l);
 
 		for (int i = 0; i < products.size(); i++) {
 			String s[] = products.get(i).getText().split("-");
 			String formatted = s[0].trim();
-			System.out.println(formatted);
-			System.out.println(s);
+//			System.out.println(formatted);
+//			System.out.println(s);
 
 			if (l.contains(formatted)) {
 				// System.out.println(s.contains("Cucumber"));
@@ -52,14 +58,16 @@ public class greenkart {
 
 	}
 	
-	public static void checkOut(WebDriver driver) {
+	public static void checkOut(WebDriver driver) throws InterruptedException {
 		
 		driver.findElement(By.xpath("//img[@alt=\"Cart\"]")).click();
 		driver.findElement(By.xpath("//div[@class=\"cart-preview active\"]/div[2]/button")).click();
 		driver.findElement(By.cssSelector(".promoCode")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.cssSelector(".promoBtn")).click();
+		System.out.println(	driver.findElement(By.className("promoInfo")).getText());
+	
 		driver.findElement(By.xpath("//button[text()=\"Place Order\"]")).click();
-		
+		Thread.sleep(3000);
 		
 		
 	}
