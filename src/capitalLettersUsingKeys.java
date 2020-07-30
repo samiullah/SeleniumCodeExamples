@@ -21,10 +21,10 @@ public class capitalLettersUsingKeys {
 		
 		Actions action = new Actions(driver);
 		
-		action.moveToElement(search).click().keyDown(Keys.SHIFT).sendKeys("hello").build().perform();
+		action.moveToElement(search).click().keyDown(Keys.SHIFT).sendKeys("hello").doubleClick().build().perform();
 		
 		Thread.sleep(3000); //debugging purposes
-		
+		driver.quit();
 
 	}
 
