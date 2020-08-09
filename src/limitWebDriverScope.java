@@ -1,11 +1,12 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class limitWebDriverScope {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
 		
@@ -26,6 +27,21 @@ public class limitWebDriverScope {
 		
 		
 	   System.out.println(columndriver.findElements(By.tagName("a")).size());
+	   
+	   
+	   // opening links dynamically
+	   
+	   for (int i =1; i<columndriver.findElements(By.tagName("a")).size();i++) {
+		   
+		   String clickandenter = Keys.chord(Keys.COMMAND,Keys.ENTER);
+		   
+		  Thread.sleep(2000);
+		   
+		   columndriver.findElements(By.tagName("a")).get(i).sendKeys(clickandenter);
+		   
+		   Thread.sleep(2000);
+		   
+	   }
 		
 		
 		
