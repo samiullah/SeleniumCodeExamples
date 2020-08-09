@@ -20,6 +20,13 @@ public class limitWebDriverScope {
 		
 		System.out.println(footerdriver.findElements(By.tagName("a")).size());
 		
+		//code to find links only in footer column
+		
+		WebElement columndriver = footerdriver.findElement(By.xpath("//*[@id=\"gf-BIG\"]/table/tbody/tr/td[1]"));
+		
+		
+	   System.out.println(columndriver.findElements(By.tagName("a")).size());
+		
 		
 		
 		
