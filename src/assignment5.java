@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Select;
 
 public class assignment5 {
 
@@ -40,8 +41,13 @@ public class assignment5 {
 		//due to slow network
 		Thread.sleep(4000);
 		// selecting the optiontext
+	
+		System.out.println(optionText);
 		s.selectByVisibleText(optionText);
 		
+		
+		
+//		intellisense
 		
 		//due to slow network
 		Thread.sleep(2000);
@@ -61,12 +67,8 @@ public class assignment5 {
 		else {
 			System.out.println("test case fail");
 		}
+			
 		
-		
-		
-		
-		
-
 	}
 
 }
